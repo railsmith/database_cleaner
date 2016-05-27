@@ -40,7 +40,7 @@ module DatabaseCleaner
     end
 
     def clean_with(*args)
-      opts = args.last.delete
+      opts = args.pop
       strategy = create_strategy(*args)
       set_strategy_db strategy, self.db
 
