@@ -39,7 +39,8 @@ module DatabaseCleaner
       orm_strategy(strategy).new(*strategy_args)
     end
 
-    def clean_with(*args, opts = {})
+    def clean_with(*args)
+      opts = args.last.delete
       strategy = create_strategy(*args)
       set_strategy_db strategy, self.db
 
