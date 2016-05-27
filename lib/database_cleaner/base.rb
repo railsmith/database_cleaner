@@ -39,11 +39,11 @@ module DatabaseCleaner
       orm_strategy(strategy).new(*strategy_args)
     end
 
-    def clean_with(*args)
+    def clean_with(*args, opts = {})
       strategy = create_strategy(*args)
       set_strategy_db strategy, self.db
 
-      strategy.clean
+      strategy.clean(opts)
       strategy
     end
 
